@@ -1,0 +1,144 @@
+@charset "UTF-8";
+
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+
+* {
+	margin: 0;
+}
+
+body {
+	font-family: 'Poppins', sans-serif !important;
+	margin: 0;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+#nuevaAtraccion .btn {
+	background-color: #dabc5c !important;
+	color: white !important
+}
+
+#nuevaAtraccion .btn:hover {
+	background-color: #b19436 !important;
+	color: white !important
+}
+
+#nuevaPromocion .btn {
+	background-color: #dabc5c !important;
+	color: white !important
+}
+
+#nuevaPromocion .btn:hover {
+	background-color: #b19436 !important;
+	color: white !important
+}
+
+#nuevoUsuario .btn {
+	background-color: #dabc5c !important;
+	color: white !important
+}
+
+#nuevoUsuario .btn:hover {
+	background-color: #b19436 !important;
+	color: white !important
+}
+
+
+.page-item.active .page-link {
+    background-color: #dabc5c !important;
+    border: 1px solid grey;
+}
+.page-link {
+    color: black !important;
+}
+
+
+img {
+	max-width: 100%;
+}
+
+footer {
+	text-align: center;
+	color: white;
+	font-size: 12px;
+	position: relative;
+    margin-bottom: 0;
+}
+
+footer p{
+	margin-bottom: 0px;
+}
+
+
+header {
+	margin: 0 auto;
+	color: white;
+	position: fixed;
+	z-index: 99999;
+	left: 0;
+	right: 0;
+	margin-bottom: 15px;
+}
+
+.navbar {
+	background-color: #dabc5c !important;
+}
+
+.navbar-brand {
+	color: white !important;
+}
+
+.img-responsive {
+	max-width: 50px;
+	max-height: 39px;
+}
+
+main {
+	display: block;
+    flex: 1 0 auto;
+	padding-top: 80px;
+	padding-bottom: 20px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: /*0.25fr 0.75fr*/ 1fr;
+	grid-gap: 50px;
+	grid-auto-rows: minmax(200px, auto);
+	min-width: 60vw !important
+}
+
+
+img {
+	width: 100%;
+}
+
+header nav ul li a {
+	text-decoration: none;
+	color: white !important;
+	font-size: 20px;
+}
+
+header nav ul li a:hover {
+	text-decoration: none;
+	color: #785039 !important;
+}
+
+header nav ul li {
+	display: inline-block;
+	margin-right: 20px;
+	margin-left: 20px;
+}
+
+form label{
+	color: black;
+}
+
+.offcanvas .btn {
+	background-color: #dabc5c !important;
+	color: white !important
+}
+
+.offcanvas .btn:hover {
+	background-color: #b19436 !important;
+	color: white !important
+}
