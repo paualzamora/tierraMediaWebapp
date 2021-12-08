@@ -8,6 +8,10 @@
 
 body {
 	font-family: 'Poppins', sans-serif !important;
+	margin: 0;
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
 }
 
 .console-container {
@@ -40,13 +44,15 @@ footer {
 	color: white;
 	font-size: 12px;
 	position: relative;
+	margin-bottom: 0;
+	margin-top: auto;
 }
 
-footer p{
+footer p {
 	margin-bottom: 0px;
 }
 
-#cita{
+#cita {
 	font-size: 15px;
 }
 
@@ -68,7 +74,7 @@ header {
 	color: white !important;
 }
 
-.img-responsive {
+header .img-responsive {
 	max-width: 50px;
 	max-height: 39px;
 }
@@ -85,10 +91,9 @@ header {
 	background-color: rgb(0, 0, 0, 0.4);
 }
 
-#botonBanner:hover{
+#botonBanner:hover {
 	background-color: white;
 }
-
 
 main {
 	padding-top: 10px;
@@ -123,13 +128,13 @@ header nav ul li {
 }
 
 #promociones .btn:hover {
-	background-color: #dabc5c !important;
+	background-color: #dadada!important;
 }
 
-#controlesPromos .btn{
-border: 1px solid grey !important;
+#controlesPromos .btn {
+	border: 1px solid grey !important;
 }
 
-#controlesPromos .fa{
+#controlesPromos .fa {
 	color: #785039 !important;
 }

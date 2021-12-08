@@ -17,14 +17,3 @@
         crossorigin="anonymous"></script>
     <!-- Hoja de estilos -->
     <link rel="stylesheet" href="../assets/css/admin.css">
-    <!-- Script Datatables -->
-    <script defer>
-        $(document).ready(function () {
-            $('#tablaAtracciones').DataTable({
-                "language": {
-                    "url": "https://cdn.datatables.net/plug-ins/1.11.3/i18n/es-mx.json"
-                }
-            }
-            );
-        });
-    </script>
