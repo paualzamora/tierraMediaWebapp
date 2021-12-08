@@ -13,7 +13,7 @@
 
 			<div id="titulo">
 				<img src="https://i.ibb.co/PZbyspc/mapita.png" alt="logo">
-				<h1 style="text-align: center">Tierra Media</h1>
+				<h1 style="text-align: center"><b>Tierra Media</b></h1>
 			</div>
 			<p style="text-align: center">Por favor, inicie sesión para
 				continuar.</p>

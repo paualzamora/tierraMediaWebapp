@@ -138,3 +138,7 @@ header nav ul li {
 #controlesPromos .fa {
 	color: #785039 !important;
 }
+
+form .btn:hover{
+	background-color:#785039;
+}
