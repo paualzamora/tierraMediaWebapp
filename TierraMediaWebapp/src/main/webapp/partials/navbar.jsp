@@ -3,9 +3,9 @@
 	<nav
 		class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-center">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="#"> <img
-				class="img-responsive" src="https://i.ibb.co/ggPpVRM/minimapa.png" />
-				<strong>Tierra Media</strong>
+			<a class="navbar-brand" href="#"> <img class="img-responsive"
+				src="https://i.ibb.co/ggPpVRM/minimapa.png" /> <strong>Tierra
+					Media</strong>
 			</a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -21,15 +21,28 @@
 					</li>
 					<li class="nav-item"><a class="nav-link" href="#">Itinerario</a>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="#">Contacto</a>
-					</li>
 				</ul>
-				<form class="d-flex">
-					<input class="form-control me-2" type="search"
-						placeholder="Búsqueda" aria-label="Search">
-					<button class="btn btn-outline-light" type="submit">Buscar</button>
-				</form>
 			</div>
+			<ul class="navbar-nav justify-content-end mb-2 mb-lg-0">
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						<c:out value="${usuario.nombre}"></c:out>
+				</a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<li><a class="dropdown-item disabled" style="color: black;">
+								<i class="fas fa-coins" style="color: gold;"></i> <c:out
+									value="${usuario.presupuesto}"></c:out>
+						</a></li>
+						<li><a class="dropdown-item disabled" style="color: black;">
+								<i class="fas fa-user-clock" style="color: gold;"></i> <c:out
+									value="${usuario.tiempoDisponible} hs"></c:out>
+						</a></li>
+						<li><hr class="dropdown-divider"></li>
+						<li><a class="dropdown-item" href="/TierraMediaWebapp/logout">Cerrar
+								sesión</a></li>
+					</ul></li>
+			</ul>
 		</div>
 	</nav>
 

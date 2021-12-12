@@ -58,7 +58,6 @@ footer p {
 
 header {
 	margin: 0 auto;
-	color: white;
 	position: fixed;
 	z-index: 99999;
 	left: 0;
@@ -72,6 +71,42 @@ header {
 
 .navbar-brand {
 	color: white !important;
+}
+
+.dropdown-menu {
+	background-color: #7a5a47 !important;
+}
+
+.dropdown-item {
+	color: white !important;
+}
+
+.dropdown-item:hover {
+	background-color: #dabc5c;
+	color: black !important;
+}
+
+.dropdown-menu[data-bs-popper] {
+	top: 100%;
+	right: 0;
+	margin-top: 0.125rem;
+}
+
+.nav-item .nav-link {
+	text-decoration: none;
+	color: white !important;
+	font-size: 20px;
+}
+
+.nav-item .nav-link:hover {
+	text-decoration: none;
+	color: #dabc5c !important;
+}
+
+.nav-item .nav-link {
+	display: inline-block;
+	margin-right: 20px;
+	margin-left: 20px;
 }
 
 header .img-responsive {
@@ -110,25 +145,8 @@ img {
 	width: 100%;
 }
 
-header nav ul li a {
-	text-decoration: none;
-	color: white !important;
-	font-size: 20px;
-}
-
-header nav ul li a:hover {
-	text-decoration: none;
-	color: #dabc5c !important;
-}
-
-header nav ul li {
-	display: inline-block;
-	margin-right: 20px;
-	margin-left: 20px;
-}
-
 #promociones .btn:hover {
-	background-color: #dadada!important;
+	background-color: #dadada !important;
 }
 
 #controlesPromos .btn {
@@ -139,6 +157,6 @@ header nav ul li {
 	color: #785039 !important;
 }
 
-form .btn:hover{
-	background-color:#785039;
+form .btn:hover {
+	background-color: #785039;
 }

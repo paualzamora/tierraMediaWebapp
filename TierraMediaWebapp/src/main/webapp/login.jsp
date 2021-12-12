@@ -13,16 +13,25 @@
 
 			<div id="titulo">
 				<img src="https://i.ibb.co/PZbyspc/mapita.png" alt="logo">
-				<h1 style="text-align: center"><b>Tierra Media</b></h1>
+				<h1 style="text-align: center">
+					<b>Tierra Media</b>
+				</h1>
 			</div>
 			<p style="text-align: center">Por favor, inicie sesión para
 				continuar.</p>
 
 			<c:if test="${flash != null}">
 				<div class="alert alert-danger">
-					<p>
-						<c:out value="${flash}" />
-					</p>
+					<i class="fas fa-exclamation-triangle" style="color: #842429;"></i>
+					<c:out value="${flash}" />
+				</div>
+			</c:if>
+			<c:if test="${success != null}">
+				<div class="alert alert-secondary alert-dismissible fade show"
+					role="alert">
+					<c:out value="${success}" />
+					<button type="button" class="btn-close" data-bs-dismiss="alert"
+						aria-label="Close"></button>
 				</div>
 			</c:if>
 
