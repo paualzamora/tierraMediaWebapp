@@ -27,8 +27,25 @@ public abstract class Producto {
 		return tiempo;
 	}
 
+	public String getTipoDeAtraccion() {
+		return tipoDeAtraccion;
+	}
+
+	public void setTipoDeAtraccion(String tipoDeAtraccion) {
+		this.tipoDeAtraccion = tipoDeAtraccion;
+	}
+
+	public void setCosto(double costo) {
+		this.costo = costo;
+	}
+
+	public void setTiempo(double tiempo) {
+		this.tiempo = tiempo;
+	}
+
 	public abstract void ocuparCupo();
 
 	protected abstract String getNombre();
+
 
 }

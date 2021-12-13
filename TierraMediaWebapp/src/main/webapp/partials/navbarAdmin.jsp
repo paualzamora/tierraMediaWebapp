@@ -15,17 +15,36 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					<li class="nav-item"><a class="nav-link" href="atraccionesAdmin.jsp">Atracciones</a>
-					</li>
 					<li class="nav-item"><a class="nav-link"
-						href="promosAdmin.jsp">Promociones</a></li>
+						href="atraccionesAdmin.do">Atracciones</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="usuariosAdmin.jsp">Usuarios</a></li>
+						href="promosAdmin.do">Promociones</a></li>
+						<c:if test="${usuario.isAdmin()}">
+					<li class="nav-item"><a class="nav-link"
+						href="usuariosAdmin.do">Usuarios</a></li>
+						</c:if>
 				</ul>
-				<form class="d-flex">
-					<span><b>Modo Administrador</b></span>
-				</form>
 			</div>
+			<ul class="navbar-nav justify-content-end mb-2 mb-lg-0">
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						<c:out value="${usuario.nombre}"></c:out>
+				</a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<li><a class="dropdown-item disabled" style="color: white;">
+								<i class="fas fa-coins" style="color: #785039;"></i> <c:out
+									value="${usuario.presupuesto}"></c:out>
+						</a></li>
+						<li><a class="dropdown-item disabled" style="color: white;">
+								<i class="fas fa-user-clock" style="color: #785039;"></i> <c:out
+									value="${usuario.tiempoDisponible} hs"></c:out>
+						</a></li>
+						<li><hr class="dropdown-divider"></li>
+						<li><a class="dropdown-item" href="/TierraMediaWebapp/logout">Cerrar
+								sesión</a></li>
+					</ul></li>
+			</ul>
 		</div>
 	</nav>
 

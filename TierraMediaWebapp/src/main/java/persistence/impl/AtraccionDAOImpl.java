@@ -21,12 +21,12 @@ public class AtraccionDAOImpl implements AtraccionDAO {
 			PreparedStatement statement = conn.prepareStatement(sql);
 			ResultSet resultados = statement.executeQuery();
 
-			List<Atraccion> attractions = new LinkedList<Atraccion>();
+			List<Atraccion> atracciones = new LinkedList<Atraccion>();
 			while (resultados.next()) {
-				attractions.add(toAtraccion(resultados));
+				atracciones.add(toAtraccion(resultados));
 			}
-
-			return attractions;
+			System.out.println(atracciones);
+			return atracciones;
 		} catch (Exception e) {
 			throw new MissingDataException(e);
 		}
@@ -55,18 +55,19 @@ public class AtraccionDAOImpl implements AtraccionDAO {
 	
 	private Atraccion toAtraccion(ResultSet atraccionRegister) throws SQLException {
 		return new Atraccion(atraccionRegister.getInt(1), atraccionRegister.getString(2),
-				atraccionRegister.getString(3), atraccionRegister.getDouble(4), atraccionRegister.getInt(5));
-	}
+				atraccionRegister.getString(3), atraccionRegister.getDouble(4), atraccionRegister.getDouble(5), atraccionRegister.getInt(6));
+		}
 
 	@Override
 	public int insert(Atraccion atraccion) {
 		try {
-			String sql = "INSERT INTO atracciones (nombre, costo, tiempo, cupo) VALUES (?, ?, ?, ?)";
+			String sql = "INSERT INTO atracciones (nombre, tipo, costo, tiempo, cupo) VALUES (?, ?, ?, ?, ?)";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
 			int i = 1;
 			statement.setString(i++, atraccion.getNombre());
+			statement.setString(i++, atraccion.getTipo());
 			statement.setDouble(i++, atraccion.getCosto());
 			statement.setDouble(i++, atraccion.getTiempo());
 			statement.setInt(i++, atraccion.getCupo());
@@ -79,18 +80,19 @@ public class AtraccionDAOImpl implements AtraccionDAO {
 	}
 
 	@Override
-	public int update(Atraccion attraction) {
+	public int update(Atraccion atraccion) {
 		try {
-			String sql = "UPDATE ATTRACTIONS SET nombre = ?, costo = ?, tiempo = ?, cupo = ? WHERE id = ?";
+			String sql = "UPDATE atracciones SET nombre = ?, tipo=?, costo = ?, tiempo = ?, cupo = ? WHERE id = ?";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
 			int i = 1;
-			statement.setString(i++, attraction.getNombre());
-			statement.setDouble(i++, attraction.getCosto());
-			statement.setDouble(i++, attraction.getTiempo());
-			statement.setInt(i++, attraction.getCupo());
-			statement.setInt(i++, attraction.getId());
+			statement.setString(i++, atraccion.getNombre());
+			statement.setString(i++, atraccion.getTipo());
+			statement.setDouble(i++, atraccion.getCosto());
+			statement.setDouble(i++, atraccion.getTiempo());
+			statement.setInt(i++, atraccion.getCupo());
+			statement.setInt(i++, atraccion.getId());
 			int rows = statement.executeUpdate();
 
 			return rows;

@@ -1,6 +1,8 @@
 package model;
 
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
 
 public class Usuario {
 	private Integer id;
@@ -11,6 +13,8 @@ public class Usuario {
 	private double presupuesto;
 	private double tiempoDisponible;
 	private LinkedList<Producto> itinerario = new LinkedList<Producto>();
+	private HashMap<String, String> errores;
+
 	
 
 	public Usuario(Integer id, String nombre, String username, String password,
@@ -46,6 +50,11 @@ public class Usuario {
 		// this.password en realidad es el hash del password
 		return password.equals(this.password);
 	}
+	
+	public boolean puedeComprar(Atraccion atraccion) {
+		return atraccion.getCosto() <= this.presupuesto && atraccion.getTiempo() <= this.tiempoDisponible;
+	}
+
 
 	public void setPresupuesto(double presupuesto) {
 		this.presupuesto = presupuesto;
@@ -84,7 +93,7 @@ public class Usuario {
 		this.password = password;
 	}
 
-	public Boolean getAdmin() {
+	public Boolean isAdmin() {
 		return admin;
 	}
 
@@ -121,6 +130,9 @@ public class Usuario {
 	
 	public void agregarAItinerario(Producto producto) {
 		itinerario.add(producto);
+		this.presupuesto -= producto.getCosto();
+		this.tiempoDisponible -= producto.getTiempo();
+		producto.ocuparCupo();
 	}
 
 	@Override
@@ -131,6 +143,26 @@ public class Usuario {
 
 	public boolean isNull() {
 		return false;
+	}
+
+	public boolean isValid() {
+		validar();
+		return errores.isEmpty();
+	}
+	
+	public void validar() {
+		errores = new HashMap<String, String>();
+
+		if (presupuesto < 0) {
+			errores.put("coins", "No debe ser negativo");
+		}
+		if (tiempoDisponible < 0) {
+			errores.put("time", "No debe ser negativo");
+		}
+	}
+	
+	public Map<String, String> getErrores() {
+		return errores;
 	}
 
 }

@@ -11,6 +11,7 @@ import model.Usuario;
 import model.nullobjects.NullUsuario;
 import persistence.UsuarioDAO;
 import persistence.commons.ConnectionProvider;
+import persistence.commons.DAOFactory;
 import persistence.commons.MissingDataException;
 
 public class UsuarioDAOImpl implements UsuarioDAO {

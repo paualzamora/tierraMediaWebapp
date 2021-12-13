@@ -1,38 +1,79 @@
 package model;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Atraccion extends Producto {
 	private String nombre;
 	private int cupoMaximo;
-	private int id;
+	private Integer id;
+	
+	private Map<String, String> errores;
 	
 	
 
-	public Atraccion(int id, String nombre, String tipoDeAtraccion, double costo, int cupo) {
+	public Atraccion(Integer id, String nombre, String tipoDeAtraccion, double costo, double tiempo, int cupo) {
 		super(tipoDeAtraccion);
 		this.nombre = nombre;
 		this.costo = costo;
+		this.tiempo = tiempo;
 		this.cupoMaximo = cupo;
 		this.id = id;
 	}
 
 
-	public Atraccion(String nombre, String tipo, double costo, double tiempo, int cupo) {
-		super(tipo);
+	public Atraccion(String nombre, String tipoDeAtraccion, double costo, double tiempo, int cupo) {
+		super(tipoDeAtraccion);
 		this.nombre = nombre;
 		this.costo = costo;
 		this.tiempo = tiempo;
 		this.cupoMaximo = cupo;
 	}
 	
+	public boolean isValid() {
+		validar();
+		return errores.isEmpty();
+	}
+	
+	public void validar() {
+		errores = new HashMap<String, String>();
 
-	public int getId() {
+		if (costo <= 0) {
+			errores.put("costo", "Debe ser positivo");
+		}
+		if (tiempo <= 0) {
+			errores.put("tiempo", "Debe ser positivo");
+		}
+		if (cupoMaximo <= 0) {
+			errores.put("cupoMaximo", "Debe ser positivo");
+		}
+	}
+	
+	public Map<String, String> getErrores() {
+		return errores;
+	}
+	
+
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
+	
+	@Override
+	public String getNombre() {
+		return nombre;
+	}
+	
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 
+	public void setCupoMaximo(int cupoMaximo) {
+		this.cupoMaximo = cupoMaximo;
+	}
 
 	public String getTipo() {
 		return tipoDeAtraccion;
@@ -45,10 +86,9 @@ public class Atraccion extends Producto {
 	public int getCupo(){
 		return cupoMaximo - cuposOcupados;
 	}
-
-	@Override
-	public String getNombre() {
-		return nombre;
+	
+	public int getCupoMaximo() {
+		return cupoMaximo;
 	}
 
 	@Override

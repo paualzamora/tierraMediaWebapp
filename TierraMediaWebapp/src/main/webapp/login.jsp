@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<jsp:include page="partials/head.jsp"></jsp:include>
+<jsp:include page="/partials/head.jsp"></jsp:include>
 <title>Iniciar sesión | Turismo en la Tierra Media</title>
 </head>
 <body>
@@ -55,6 +55,6 @@
 		</div>
 	</main>
 	<!-- Pie de página -->
-	<jsp:include page="partials/footer.jsp"></jsp:include>
+	<jsp:include page="/partials/footer.jsp"></jsp:include>
 </body>
 </html>

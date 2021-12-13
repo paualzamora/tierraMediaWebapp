@@ -89,6 +89,43 @@ header {
 	color: white !important;
 }
 
+.dropdown-menu {
+	background-color: #dabc5c !important;
+}
+
+.dropdown-item {
+	color: white !important;
+	font-size: 16px;
+}
+
+.dropdown-item:hover {
+	background-color: #b19436;
+	color: white !important;
+}
+
+.dropdown-menu[data-bs-popper] {
+	top: 100%;
+	right: 0;
+	margin-top: 0.125rem;
+}
+
+.nav-item .nav-link {
+	text-decoration: none;
+	color: white !important;
+	font-size: 20px;
+}
+
+.nav-item .nav-link:hover {
+	text-decoration: none;
+	color: #7a5a47 !important;
+}
+
+.nav-item .nav-link {
+	display: inline-block;
+	margin-right: 20px;
+	margin-left: 20px;
+}
+
 .img-responsive {
 	max-width: 50px;
 	max-height: 39px;
@@ -110,23 +147,6 @@ main {
 
 img {
 	width: 100%;
-}
-
-header nav ul li a {
-	text-decoration: none;
-	color: white !important;
-	font-size: 20px;
-}
-
-header nav ul li a:hover {
-	text-decoration: none;
-	color: #785039 !important;
-}
-
-header nav ul li {
-	display: inline-block;
-	margin-right: 20px;
-	margin-left: 20px;
 }
 
 form label{
