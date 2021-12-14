@@ -51,57 +51,10 @@
 			<c:if test="${usuario.isAdmin()}">
 				<!-- Botón para crear usuario -->
 				<div class="d-flex justify-content-center" id="nuevoUsuario">
-					<button class="btn mx-2" type="button" data-bs-toggle="offcanvas"
-						data-bs-target="#offcanvasFormulario"
-						aria-controls="offcanvasFormulario">Nuevo usuario</button>
+					<a href="/TierraMediaWebapp/views/createUsuario.do"
+						class="btn mx-2" role="button">Nuevo usuario</a>
 				</div>
 			</c:if>
-			<!-- Offcanvas para crear usuario -->
-			<div class="offcanvas offcanvas-start" tabindex="-1"
-				id="offcanvasFormulario" aria-labelledby="offcanvasFormularioLabel">
-				<div class="offcanvas-header">
-					<h5 class="offcanvas-title" id="offcanvasFormularioLabel">Offcanvas
-						con backdrop</h5>
-					<button type="button" class="btn-close text-reset"
-						data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
-				</div>
-				<div class="offcanvas-body">
-					<!-- Formulario para crear usuario-->
-					<div class="container my-5">
-						<form action="usuariosAdmin.html" method="get"
-							class="d-flex flex-column text-light p-2"
-							id="formularioAtraccion">
-							<div class="mb-3">
-								<label for="nombre" class="form-label">Nombre</label> <input
-									placeholder="Ingrese un nombre" type="text"
-									class="form-control" required id="nombre"
-									aria-describedby="emailHelp">
-							</div>
-							<div class="mb-3">
-								<label for="tipo" class="form-label">Tipo de atracción
-									preferido</label> <select class="form-select form-select-lg mb-3"
-									aria-label=".form-select-lg example" required id="tipo">
-									<option selected value="1">AVENTURA</option>
-									<option value="2">DEGUSTACION</option>
-									<option value="3">PAISAJE</option>
-								</select>
-							</div>
-							<div class="mb-3">
-								<label for="costo" class="form-label">Presupuesto</label> <input
-									type="number" step="0.5" min=1 required class="form-control"
-									id="costo">
-							</div>
-							<div class="mb-3">
-								<label for="tiempo" class="form-label">Tiempo disponible</label>
-								<input type="number" step="0.5" min=0,5 class="form-control"
-									required id="tiempo">
-							</div>
-
-							<button type="submit" class="btn mx-2">Crear usuario</button>
-						</form>
-					</div>
-				</div>
-			</div>
 
 			<!-- Tabla de usuarios -->
 			<div class="container table-responsive mt-1">
@@ -138,11 +91,11 @@
 								</c:otherwise>
 									</c:choose></td>
 								<td><c:if
-										test="${usuario.isAdmin() && (!tmp_usuario.isAdmin() || tmp_usuario.id == usuario.id)}">
-										<a href="/turismo/usuarios/edit.do?id=${tmp_usuario.id}"
+										test="${usuario.isAdmin()&& (!tmp_usuario.isAdmin() || tmp_usuario.id == usuario.id)}">
+										<a href="/TierraMediaWebapp/views/editUsuario.do?id=${tmp_usuario.id}"
 											class="btn btn-primary rounded-0" role="button"><i
 											class="far fa-edit"></i></a>
-										<a href="/turismo/usuarios/delete.do?id=${tmp_usuario.id}"
+										<a href="/TierraMediaWebapp/views/borrarUsuario.do?id=${tmp_usuario.id}"
 											class="btn btn-danger rounded" role="button"><i
 											class="far fa-trash-alt"></i></a>
 									</c:if></td>

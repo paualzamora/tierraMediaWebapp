@@ -38,13 +38,17 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
 	public int update(Usuario usuario) {
 		try {
-			String sql = "UPDATE usuarios SET presupuesto = ?, tiempo_disponible = ? WHERE id = ?";
+			String sql = "UPDATE usuarios SET nombre = ?, username = ?, password = ?, tipo_de_atraccion = ?, presupuesto = ?, tiempo_disponible = ?, admin = ? WHERE id = ?";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
-			statement.setDouble(1, usuario.getPresupuesto());
-			statement.setDouble(2, usuario.getTiempoDisponible());
-			statement.setDouble(3, usuario.getId());
+			statement.setString(1, usuario.getNombre());
+			statement.setString(2, usuario.getPassword());
+			statement.setString(3, usuario.getTipoDeAtraccionPreferido());
+			statement.setDouble(4, usuario.getPresupuesto());
+			statement.setDouble(5, usuario.getTiempoDisponible());
+			statement.setBoolean(6, usuario.isAdmin());
+			statement.setInt(3, usuario.getId());
 			int rows = statement.executeUpdate();
 
 			return rows;
@@ -55,11 +59,11 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
 	public int delete(Usuario usuario) {
 		try {
-			String sql = "DELETE FROM usuarios WHERE USERNAME = ?";
+			String sql = "DELETE FROM usuarios WHERE id = ?";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
-			statement.setString(1, usuario.getUsername());
+			statement.setInt(1, usuario.getId());
 			int rows = statement.executeUpdate();
 
 			return rows;

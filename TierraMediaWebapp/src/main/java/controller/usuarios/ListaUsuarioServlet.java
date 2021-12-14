@@ -14,7 +14,7 @@ import model.Usuario;
 import services.UsuarioService;
 
 @WebServlet("/views/usuariosAdmin.do")
-public class ListaUsuariosServlet extends HttpServlet implements Servlet {
+public class ListaUsuarioServlet extends HttpServlet implements Servlet {
 
 	private static final long serialVersionUID = -8346640902238722429L;
 	private UsuarioService usuarioService;

@@ -30,8 +30,12 @@ public class Usuario {
 		this.tiempoDisponible = tiempoDisponible;
 	}
 
-	public Usuario(String tipoDeAtraccionPreferido, String nombre, double presupuesto, double tiempoDisponible) {
+	public Usuario(String nombre, String username, String password,
+			String tipoDeAtraccionPreferido, double presupuesto, double tiempoDisponible, Boolean admin) {
 		super();
+		this.username = username;
+		this.password = password;
+		this.admin = admin;
 		this.tipoDeAtraccionPreferido = tipoDeAtraccionPreferido;
 		this.nombre = nombre;
 		this.presupuesto = presupuesto;
@@ -40,6 +44,11 @@ public class Usuario {
 
 	public String getTipoDeAtraccionPreferido() {
 		return tipoDeAtraccionPreferido;
+	}
+	
+
+	public void setTipoDeAtraccionPreferido(String tipoDeAtraccionPreferido) {
+		this.tipoDeAtraccionPreferido = tipoDeAtraccionPreferido;
 	}
 
 	public double getPresupuesto() {
