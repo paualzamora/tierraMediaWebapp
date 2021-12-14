@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class Atraccion extends Producto {
 	private String nombre;
-	private int cupoMaximo;
+	private Integer cupoMaximo;
 	private Integer id;
 	
 	private Map<String, String> errores;
@@ -22,7 +22,7 @@ public class Atraccion extends Producto {
 	}
 
 
-	public Atraccion(String nombre, String tipoDeAtraccion, double costo, double tiempo, int cupo) {
+	public Atraccion(String nombre, String tipoDeAtraccion, Double costo, Double tiempo, Integer cupo) {
 		super(tipoDeAtraccion);
 		this.nombre = nombre;
 		this.costo = costo;
@@ -79,15 +79,15 @@ public class Atraccion extends Producto {
 		return tipoDeAtraccion;
 	}
 
-	public int getCuposOcupados() {
+	public Integer getCuposOcupados() {
 		return cuposOcupados;
 	}
 
-	public int getCupo(){
+	public Integer getCupo(){
 		return cupoMaximo - cuposOcupados;
 	}
 	
-	public int getCupoMaximo() {
+	public Integer getCupoMaximo() {
 		return cupoMaximo;
 	}
 

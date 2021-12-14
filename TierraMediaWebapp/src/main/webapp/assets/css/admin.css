@@ -9,14 +9,15 @@
 body {
 	font-family: 'Poppins', sans-serif !important;
 	margin: 0;
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
 }
 
 #nuevaAtraccion .btn {
 	background-color: #dabc5c !important;
-	color: white !important
+	color: white !important;
+	margin-bottom: 10px;
 }
 
 #nuevaAtraccion .btn:hover {
@@ -26,7 +27,8 @@ body {
 
 #nuevaPromocion .btn {
 	background-color: #dabc5c !important;
-	color: white !important
+	color: white !important;
+	margin-bottom: 10px;
 }
 
 #nuevaPromocion .btn:hover {
@@ -36,7 +38,8 @@ body {
 
 #nuevoUsuario .btn {
 	background-color: #dabc5c !important;
-	color: white !important
+	color: white !important;
+	margin-bottom: 10px;
 }
 
 #nuevoUsuario .btn:hover {
@@ -44,15 +47,14 @@ body {
 	color: white !important
 }
 
-
 .page-item.active .page-link {
-    background-color: #dabc5c !important;
-    border: 1px solid grey;
-}
-.page-link {
-    color: black !important;
+	background-color: #dabc5c !important;
+	border: 1px solid grey;
 }
 
+.page-link {
+	color: black !important;
+}
 
 img {
 	max-width: 100%;
@@ -63,13 +65,12 @@ footer {
 	color: white;
 	font-size: 12px;
 	position: relative;
-    margin-bottom: 0;
+	margin-bottom: 0;
 }
 
-footer p{
+footer p {
 	margin-bottom: 0px;
 }
-
 
 header {
 	margin: 0 auto;
@@ -133,32 +134,38 @@ header {
 
 main {
 	display: block;
-    flex: 1 0 auto;
+	flex: 1 0 auto;
 	padding-top: 80px;
 	padding-bottom: 20px;
 	margin: 0 auto;
 	display: grid;
-	grid-template-columns: /*0.25fr 0.75fr*/ 1fr;
-	grid-gap: 50px;
-	grid-auto-rows: minmax(200px, auto);
 	min-width: 60vw !important
 }
-
 
 img {
 	width: 100%;
 }
 
-form label{
+form label {
 	color: black;
 }
 
-.offcanvas .btn {
+form .btn {
 	background-color: #dabc5c !important;
 	color: white !important
 }
 
-.offcanvas .btn:hover {
+form .btn:hover {
 	background-color: #b19436 !important;
 	color: white !important
+}
+
+form {
+	max-width: 60%;
+}
+
+.container {
+	margin: 0 auto !important;
+	display: flex;
+	justify-content: center;
 }

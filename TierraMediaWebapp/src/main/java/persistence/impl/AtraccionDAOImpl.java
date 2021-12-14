@@ -25,7 +25,6 @@ public class AtraccionDAOImpl implements AtraccionDAO {
 			while (resultados.next()) {
 				atracciones.add(toAtraccion(resultados));
 			}
-			System.out.println(atracciones);
 			return atracciones;
 		} catch (Exception e) {
 			throw new MissingDataException(e);
