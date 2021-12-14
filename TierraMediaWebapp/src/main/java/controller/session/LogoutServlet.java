@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/logout")
+@WebServlet("/views/logout")
 public class LogoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -20,7 +20,7 @@ public class LogoutServlet extends HttpServlet {
 		req.setAttribute("success", "¡Hasta pronto!");
 
 		RequestDispatcher dispatcher = getServletContext()
-				.getRequestDispatcher("/login.jsp");
+				.getRequestDispatcher("/views/login.jsp");
 		dispatcher.forward(req, resp);
 	}
 }

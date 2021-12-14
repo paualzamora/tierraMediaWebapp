@@ -17,32 +17,41 @@
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="nav-item"><a class="nav-link active"
 						aria-current="page" href="#">Inicio</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Reservas</a>
-					</li>
+					<li class="nav-item"><a class="nav-link"
+						href="/TierraMediaWebapp/views/atraccionesAdmin.do">Reservas</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Itinerario</a>
 					</li>
 				</ul>
 			</div>
-			<ul class="navbar-nav justify-content-end mb-2 mb-lg-0">
-				<li class="nav-item dropdown"><a
-					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-					role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						<c:out value="${usuario.nombre}"></c:out>
-				</a>
-					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<li><a class="dropdown-item disabled" style="color: black;">
-								<i class="fas fa-coins" style="color: gold;"></i> <c:out
-									value="${usuario.presupuesto}"></c:out>
-						</a></li>
-						<li><a class="dropdown-item disabled" style="color: black;">
-								<i class="fas fa-user-clock" style="color: gold;"></i> <c:out
-									value="${usuario.tiempoDisponible} hs"></c:out>
-						</a></li>
-						<li><hr class="dropdown-divider"></li>
-						<li><a class="dropdown-item" href="/TierraMediaWebapp/logout">Cerrar
+			<c:choose>
+				<c:when test="${usuario == null}">
+					<ul class="navbar-nav justify-content-end mb-2 mb-lg-0">
+						<li class="nav-item"><a class="nav-link" href="/TierraMediaWebapp/views/login.jsp">Iniciar
 								sesión</a></li>
-					</ul></li>
-			</ul>
+					</ul>
+				</c:when>
+				<c:otherwise>
+					<ul class="navbar-nav justify-content-end mb-2 mb-lg-0">
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+							role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								<c:out value="${usuario.nombre}"></c:out>
+						</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<li><a class="dropdown-item disabled" style="color: black;">
+										<i class="fas fa-coins" style="color: gold;"></i> <c:out
+											value="${usuario.presupuesto}"></c:out>
+								</a></li>
+								<li><a class="dropdown-item disabled" style="color: black;">
+										<i class="fas fa-user-clock" style="color: gold;"></i> <c:out
+											value="${usuario.tiempoDisponible} hs"></c:out>
+								</a></li>
+								<li><hr class="dropdown-divider"></li>
+								<li><a class="dropdown-item"
+									href="/TierraMediaWebapp/views/logout">Cerrar sesión</a></li>
+							</ul></li>
+				</c:otherwise>
+			</c:choose>
 		</div>
 	</nav>
 

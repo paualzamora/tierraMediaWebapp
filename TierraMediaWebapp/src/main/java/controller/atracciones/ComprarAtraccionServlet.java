@@ -13,7 +13,7 @@ import model.Usuario;
 import persistence.commons.DAOFactory;
 import services.ComprarAtraccionService;
 
-@WebServlet("/views/admin/buy.do")
+@WebServlet("/views/buy.do")
 public class ComprarAtraccionServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 3455721046062278592L;
@@ -43,7 +43,7 @@ public class ComprarAtraccionServlet extends HttpServlet {
 		}
 
 		RequestDispatcher dispatcher = getServletContext()
-				.getRequestDispatcher("/views/admin/atraccionesAdmin.do");
+				.getRequestDispatcher("/views/atraccionesAdmin.do");
 		dispatcher.forward(req, resp);
 	}
 }

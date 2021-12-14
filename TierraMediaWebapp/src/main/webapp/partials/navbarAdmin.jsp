@@ -3,7 +3,7 @@
 	<nav
 		class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-center">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="index.html"> <img
+			<a class="navbar-brand" href="/TierraMediaWebapp/views/index.jsp"> <img
 				class="img-responsive" src="https://i.ibb.co/ggPpVRM/minimapa.png" />
 				<strong>Tierra Media</strong>
 			</a>
@@ -15,6 +15,8 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<li class="nav-item"><a class="nav-link"
+						href="/TierraMediaWebapp/views/index.jsp">Inicio</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="atraccionesAdmin.do">Atracciones</a></li>
 					<li class="nav-item"><a class="nav-link"
@@ -41,7 +43,7 @@
 									value="${usuario.tiempoDisponible} hs"></c:out>
 						</a></li>
 						<li><hr class="dropdown-divider"></li>
-						<li><a class="dropdown-item" href="/TierraMediaWebapp/logout">Cerrar
+						<li><a class="dropdown-item" href="/TierraMediaWebapp/views/logout">Cerrar
 								sesión</a></li>
 					</ul></li>
 			</ul>

@@ -2,13 +2,13 @@
 <html>
 
 <head>
-<jsp:include page="partials/head.jsp"></jsp:include>
+<jsp:include page="../partials/head.jsp"></jsp:include>
 <title>Inicio | Turismo en la Tierra Media</title>
 </head>
 
 <body>
 			<!-- Navbar -->
-			<jsp:include page="partials/navbar.jsp"></jsp:include>
+			<jsp:include page="../partials/navbar.jsp"></jsp:include>
 			<!-- Banner -->
 			<div class="container">
 				<img class="img-fluid"
@@ -344,7 +344,7 @@
 				</section>
 			</main>
 			<!-- Pie de página -->
-			<jsp:include page="partials/footer.jsp"></jsp:include>
+			<jsp:include page="../partials/footer.jsp"></jsp:include>
 </body>
 
 </html>

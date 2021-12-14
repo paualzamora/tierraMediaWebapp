@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<jsp:include page="../../partials/headAdmin.jsp"></jsp:include>
+<jsp:include page="../partials/headAdmin.jsp"></jsp:include>
 <title>Usuarios | Turismo en la Tierra Media</title>
 <!-- Script Datatables -->
 <script>
@@ -25,7 +25,7 @@
 
 <body>
 	<!-- Navbar -->
-	<jsp:include page="../../partials/navbarAdmin.jsp"></jsp:include>
+	<jsp:include page="../partials/navbarAdmin.jsp"></jsp:include>
 
 	<main>
 
@@ -167,7 +167,7 @@
 	</main>
 
 	<!-- Pie de página -->
-	<jsp:include page="../../partials/footerAdmin.jsp"></jsp:include>
+	<jsp:include page="../partials/footerAdmin.jsp"></jsp:include>
 </body>
 
 </html>
