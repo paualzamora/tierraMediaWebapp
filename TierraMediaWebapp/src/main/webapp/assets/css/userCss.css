@@ -160,3 +160,8 @@ img {
 form .btn:hover {
 	background-color: #785039;
 }
+
+#itinerario{
+	margin-top: 70px;
+	min-width: 60vw !important;
+}

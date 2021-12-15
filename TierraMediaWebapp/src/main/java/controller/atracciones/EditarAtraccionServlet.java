@@ -40,9 +40,9 @@ public class EditarAtraccionServlet extends HttpServlet {
 		Integer id = Integer.parseInt(req.getParameter("id"));
 		String nombre = req.getParameter("nombre");
 		String tipo = req.getParameter("tipo");
-		Double costo = /*req.getParameter("costo").trim() == "" ? null : */Double.valueOf(req.getParameter("costo"));
-		Double tiempo = /*req.getParameter("tiempo").trim() == "" ? null : */Double.valueOf(req.getParameter("tiempo"));
-		Integer cupo = /*req.getParameter("cupo").trim() == "" ? null : */Integer.parseInt(req.getParameter("cupo"));
+		Double costo = Double.parseDouble(req.getParameter("costo"));
+		Double tiempo = Double.parseDouble(req.getParameter("tiempo"));
+		Integer cupo = Integer.parseInt(req.getParameter("cupo"));
 		//Double costo = Double.parseDouble(req.getParameter("costo"));
 		// Integer costo = req.getParameter("costo").trim() == "" ? null : Integer.parseInt(req.getParameter("costo"));
 		//Double tiempo = Double.parseDouble(req.getParameter("tiempo"));

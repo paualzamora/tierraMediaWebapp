@@ -18,7 +18,7 @@ public class UsuarioService {
 
 	public Usuario create(String nombre, String username, String password,
 			String tipoDeUsuarioPreferido, double presupuesto, double tiempoDisponible, Boolean admin) {
-		Usuario usuario = new Usuario(-1, nombre, username, password, tipoDeUsuarioPreferido, presupuesto, tiempoDisponible, false);
+		Usuario usuario = new Usuario(-1, nombre, username, password, tipoDeUsuarioPreferido, presupuesto, tiempoDisponible, admin);
 		
 		usuario.setPassword(password);
 

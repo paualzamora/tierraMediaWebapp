@@ -93,7 +93,7 @@
 								<td><c:if
 										test="${usuario.isAdmin()&& (!tmp_usuario.isAdmin() || tmp_usuario.id == usuario.id)}">
 										<a href="/TierraMediaWebapp/views/editUsuario.do?id=${tmp_usuario.id}"
-											class="btn btn-primary rounded-0" role="button"><i
+											class="btn btn-primary rounded" role="button"><i
 											class="far fa-edit"></i></a>
 										<a href="/TierraMediaWebapp/views/borrarUsuario.do?id=${tmp_usuario.id}"
 											class="btn btn-danger rounded" role="button"><i

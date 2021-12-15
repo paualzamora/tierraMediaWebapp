@@ -83,7 +83,7 @@
 								<td><c:if test="${usuario.isAdmin()}">
 										<a
 											href="/TierraMediaWebapp/views/editAtraccion.do?id=${atraccion.id}"
-											class="btn btn-primary rounded-0" role="button"><i
+											class="btn btn-primary rounded" role="button"><i
 											class="far fa-edit"></i></a>
 										<a
 											href="/TierraMediaWebapp/views/borrarAtraccion.do?id=${atraccion.id}"

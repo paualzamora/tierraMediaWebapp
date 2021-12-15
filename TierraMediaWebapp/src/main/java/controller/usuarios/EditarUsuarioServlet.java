@@ -27,8 +27,8 @@ public class EditarUsuarioServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Integer id = Integer.parseInt(req.getParameter("id"));
 
-		Usuario usuario = usuarioService.find(id);
-		req.setAttribute("usuario", usuario);
+		Usuario usuario1 = usuarioService.find(id);
+		req.setAttribute("usuario1", usuario1);
 
 		RequestDispatcher dispatcher = getServletContext()
 				.getRequestDispatcher("/views/editUsuario.jsp");
@@ -42,16 +42,16 @@ public class EditarUsuarioServlet extends HttpServlet {
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
 		String tipoDeAtraccionPreferido = req.getParameter("tipoDeAtraccionPreferido");
-		Double presupuesto = Double.valueOf(req.getParameter("presupuesto"));
-		Double tiempoDisponible = Double.valueOf(req.getParameter("tiempoDisponible"));
+		Double presupuesto = Double.parseDouble(req.getParameter("presupuesto"));
+		Double tiempoDisponible = Double.parseDouble(req.getParameter("tiempoDisponible"));
 		Boolean admin = Boolean.parseBoolean(req.getParameter("admin"));
 	
-		Usuario usuario = usuarioService.update(id, nombre, username, password, tipoDeAtraccionPreferido, presupuesto, tiempoDisponible, admin);
+		Usuario usuario1 = usuarioService.update(id, nombre, username, password, tipoDeAtraccionPreferido, presupuesto, tiempoDisponible, admin);
 
-		if (usuario.isValid()) {
+		if (usuario1.isValid()) {
 			resp.sendRedirect("/TierraMediaWebapp/views/usuariosAdmin.do");
 		} else {
-			req.setAttribute("usuario", usuario);
+			req.setAttribute("usuario1", usuario1);
 
 			RequestDispatcher dispatcher = getServletContext()
 					.getRequestDispatcher("/views/editUsuario.jsp");

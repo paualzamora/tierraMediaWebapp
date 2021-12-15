@@ -18,7 +18,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
 	public int insert(Usuario usuario) {
 		try {
-			String sql = "INSERT INTO usuarios (nombre, username, password, tipo_de_atraccion, presupuesto, tiempo_disponible) VALUES (?, ?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO usuarios (nombre, username, password, tipo_de_atraccion, presupuesto, tiempo_disponible, admin) VALUES (?, ?, ?, ?, ?, ?, ?)";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
@@ -28,6 +28,8 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			statement.setString(4, usuario.getTipoDeAtraccionPreferido());
 			statement.setDouble(5, usuario.getPresupuesto());
 			statement.setDouble(6, usuario.getTiempoDisponible());
+			int esAdmin = usuario.isAdmin() ? 1 : 0;
+			statement.setInt(7, esAdmin);
 			int rows = statement.executeUpdate();
 
 			return rows;
@@ -43,12 +45,14 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setString(1, usuario.getNombre());
-			statement.setString(2, usuario.getPassword());
-			statement.setString(3, usuario.getTipoDeAtraccionPreferido());
-			statement.setDouble(4, usuario.getPresupuesto());
-			statement.setDouble(5, usuario.getTiempoDisponible());
-			statement.setBoolean(6, usuario.isAdmin());
-			statement.setInt(3, usuario.getId());
+			statement.setString(2, usuario.getUsername());
+			statement.setString(3, usuario.getPassword());
+			statement.setString(4, usuario.getTipoDeAtraccionPreferido());
+			statement.setDouble(5, usuario.getPresupuesto());
+			statement.setDouble(6, usuario.getTiempoDisponible());
+			int esAdmin = usuario.isAdmin() ? 1 : 0;
+			statement.setInt(7, esAdmin);
+			statement.setInt(8, usuario.getId());
 			int rows = statement.executeUpdate();
 
 			return rows;

@@ -38,14 +38,14 @@ public class CrearUsuarioServlet extends HttpServlet {
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
 		String tipoPreferido = req.getParameter("tipoDeAtraccionPreferido");
-		Integer presupuesto = Integer.parseInt(req.getParameter("presupuesto"));
+		Double presupuesto = Double.parseDouble(req.getParameter("presupuesto"));
 		Double tiempo = Double.parseDouble(req.getParameter("tiempoDisponible"));
 		Boolean admin = Boolean.parseBoolean(req.getParameter("admin"));
 
 		Usuario tmp_usuario = usuarioService.create(nombre, username, password, tipoPreferido, presupuesto, tiempo, admin);
 
 		if (tmp_usuario.isValid()) {
-			resp.sendRedirect("/views/usuariosAdmin.do");
+			resp.sendRedirect("/TierraMediaWebapp/views/usuariosAdmin.do");
 		} else {
 			req.setAttribute("tmp_usuario", tmp_usuario);
 
