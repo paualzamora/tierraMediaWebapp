@@ -7,12 +7,15 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
+import model.Atraccion;
+import model.Producto;
 import model.Usuario;
 import model.nullobjects.NullUsuario;
 import persistence.UsuarioDAO;
 import persistence.commons.ConnectionProvider;
 import persistence.commons.DAOFactory;
 import persistence.commons.MissingDataException;
+import services.AtraccionService;
 
 public class UsuarioDAOImpl implements UsuarioDAO {
 
@@ -60,6 +63,8 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			throw new MissingDataException(e);
 		}
 	}
+
+	
 
 	public int delete(Usuario usuario) {
 		try {
@@ -155,6 +160,80 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		return new Usuario(usuarioRegister.getInt(1), usuarioRegister.getString(2), usuarioRegister.getString(3),
 				usuarioRegister.getString(4), usuarioRegister.getString(5), usuarioRegister.getDouble(6),
 				usuarioRegister.getDouble(7), usuarioRegister.getBoolean(8));
+	}
+	
+	public int insertItinerario(Usuario usuario, Producto producto) {
+		try {
+			String sql = "INSERT INTO itinerarios (usuario_id, promocion_id, atraccion_id) VALUES (?, ?, ?)";
+			Connection conn = ConnectionProvider.getConnection();
+			PreparedStatement statement = conn.prepareStatement(sql);
+
+			if (producto.esPromo()) {
+				statement.setInt(1, usuario.getId());
+				statement.setInt(2, producto.getId());
+				statement.setInt(3, 0);
+			} else {
+				statement.setInt(1, usuario.getId());
+				statement.setInt(2, 0);
+				statement.setInt(3, producto.getId());
+			}
+			int rows = statement.executeUpdate();
+			return rows;
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
+	}
+
+	public List<Producto> findItinerario(Usuario usuario) {
+		try {
+			String sql = "SELECT * FROM itinerarios";
+			Connection conn = ConnectionProvider.getConnection();
+			PreparedStatement statement = conn.prepareStatement(sql);
+			ResultSet resultados = statement.executeQuery();
+
+			List<Producto> productos = new LinkedList<Producto>();
+			while (resultados.next()) {
+				productos.add(toItinerario(resultados));
+			}
+
+			return productos;
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
+	}
+
+	private Producto toItinerario(ResultSet productoRegister) throws SQLException {
+		AtraccionService atraccionService = new AtraccionService();
+		Producto p = null;
+		if (productoRegister.getInt(3) != 0) {
+			p = null;
+		} else {
+			p = atraccionService.find(productoRegister.getInt(4));
+		}
+		return p;
+	}
+
+	public int deleteItinerario(Usuario usuario, Producto producto) {
+		try {
+			String sql = "DELETE FROM itinerarios WHERE usuario_id = ? AND promocion_id = ? AND atraccion_id = ?";
+			Connection conn = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+			if (producto.esPromo()) {
+				statement.setInt(1, usuario.getId());
+				statement.setInt(2, producto.getId());
+				statement.setInt(3, 0);
+			} else {
+				statement.setInt(1, usuario.getId());
+				statement.setInt(2, 0);
+				statement.setInt(3, producto.getId());
+			}
+			int rows = statement.executeUpdate();
+
+			return rows;
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
 	}
 
 }

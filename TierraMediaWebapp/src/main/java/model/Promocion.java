@@ -7,17 +7,17 @@ public abstract class Promocion extends Producto {
 	protected String tipoPromocion;
 	protected List<Atraccion> atracciones;
 	protected double tiempo;
-	protected int idPromo;
+	protected int id;
 
 	public Promocion(String tipoPromocion, String tipoDeAtraccion) {
 		super(tipoDeAtraccion);
 		this.tipoPromocion = tipoPromocion;
 	}
 
-	public Promocion(int idPromo, String tipoPromocion, String tipoDeAtraccion) {
+	public Promocion(int id, String tipoPromocion, String tipoDeAtraccion) {
 		super(tipoDeAtraccion);
 		this.tipoPromocion = tipoPromocion;
-		this.idPromo = idPromo;
+		this.id = id;
 	}
 
 	public Promocion(String tipoPromocion, String tipoDeAtraccion, List<Atraccion> atracciones) {
@@ -39,7 +39,7 @@ public abstract class Promocion extends Producto {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(idPromo);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -51,7 +51,7 @@ public abstract class Promocion extends Producto {
 		if (getClass() != obj.getClass())
 			return false;
 		Promocion other = (Promocion) obj;
-		return idPromo == other.idPromo;
+		return id == other.id;
 	}
 
 	public List<Atraccion> getAtracciones() {
@@ -70,8 +70,8 @@ public abstract class Promocion extends Producto {
 		return nombres;
 	}
 
-	public int getIdPromo() {
-		return idPromo;
+	public Integer getId() {
+		return id;
 	}
 
 	@Override

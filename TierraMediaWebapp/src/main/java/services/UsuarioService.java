@@ -3,12 +3,14 @@ package services;
 import java.util.List;
 
 import model.Atraccion;
+import model.Producto;
 import model.Usuario;
 import model.Usuario;
 import model.Usuario;
 import persistence.UsuarioDAO;
 import persistence.UsuarioDAO;
 import persistence.commons.DAOFactory;
+import persistence.impl.UsuarioDAOImpl;
 
 public class UsuarioService {
 
@@ -61,6 +63,11 @@ public class UsuarioService {
 	
 	public Usuario find(Integer id) {
 		return DAOFactory.getUsuarioDAO().find(id);
+	}
+	
+	public List<Producto> listItinerario(Usuario usuario) {
+		UsuarioDAOImpl usuarioDAOImpl = (UsuarioDAOImpl) DAOFactory.getUsuarioDAO();
+		return usuarioDAOImpl.findItinerario(usuario);
 	}
 
 }

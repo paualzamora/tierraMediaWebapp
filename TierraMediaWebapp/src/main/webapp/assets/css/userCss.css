@@ -16,6 +16,8 @@ body {
 
 .console-container {
 	font-size: 4vw;
+	font-weight: bold;
+	text-shadow: 1px 1px 2px black;
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -26,6 +28,7 @@ body {
 	display: inline-block;
 	position: relative;
 	color: white;
+	text-shadow: 1px 1px 2px black;
 }
 
 .container {

@@ -47,5 +47,7 @@ public abstract class Producto {
 
 	protected abstract String getNombre();
 
+	public abstract Integer getId();
+
 
 }

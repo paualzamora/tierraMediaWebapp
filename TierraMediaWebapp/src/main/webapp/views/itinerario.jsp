@@ -33,7 +33,7 @@
 				<h2>
 					<b>Tu itinerario</b>
 				</h2>
-				<c:out value="${usuario.getItinerario()}"></c:out>
+				<c:out value="${usuario.getItinerarioString()}"></c:out>
 				<!-- <c:forEach items="${usuario.itinerario}"
 				var="atraccionItinerario">
 				<tr>

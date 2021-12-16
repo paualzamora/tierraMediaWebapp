@@ -121,8 +121,13 @@ public class Usuario {
 	public String getNombre() {
 		return nombre;
 	}
+	
 
-	public String getItinerario() {
+	public LinkedList<Producto> getItinerario() {
+		return itinerario;
+	}
+
+	public String getItinerarioString() {
 		double costoTotal = 0;
 		double tiempoTotal = 0;
 		String atracciones = "";

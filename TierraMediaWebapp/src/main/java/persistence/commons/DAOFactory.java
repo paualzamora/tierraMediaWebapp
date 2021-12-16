@@ -14,4 +14,5 @@ public class DAOFactory {
 	public static AtraccionDAO getAtraccionDAO() {
 		return new AtraccionDAOImpl();
 	}
+
 }

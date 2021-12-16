@@ -47,8 +47,12 @@ public class EditarUsuarioServlet extends HttpServlet {
 		Boolean admin = Boolean.parseBoolean(req.getParameter("admin"));
 	
 		Usuario usuario1 = usuarioService.update(id, nombre, username, password, tipoDeAtraccionPreferido, presupuesto, tiempoDisponible, admin);
-
+		
 		if (usuario1.isValid()) {
+			Usuario usuario = (Usuario) ((HttpServletRequest) req).getSession().getAttribute("usuario");
+			if (usuario1.getId().equals(usuario.getId())) {
+				req.getSession().setAttribute("usuario", usuario1);
+			}
 			resp.sendRedirect("/TierraMediaWebapp/views/usuariosAdmin.do");
 		} else {
 			req.setAttribute("usuario1", usuario1);
