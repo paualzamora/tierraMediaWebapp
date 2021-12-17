@@ -19,7 +19,7 @@
 						aria-current="page" href="/TierraMediaWebapp/views/index.jsp">Inicio</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="/TierraMediaWebapp/views/atraccionesAdmin.do">Reservas</a></li>
-					<li class="nav-item"><a class="nav-link" href="/TierraMediaWebapp/views/itinerario.jsp">Itinerario</a>
+					<li class="nav-item"><a class="nav-link" href="/TierraMediaWebapp/views/itinerario.do">Itinerario</a>
 					</li>
 				</ul>
 			</div>

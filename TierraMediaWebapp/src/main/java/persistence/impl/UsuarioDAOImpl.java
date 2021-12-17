@@ -64,8 +64,6 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		}
 	}
 
-	
-
 	public int delete(Usuario usuario) {
 		try {
 			String sql = "DELETE FROM usuarios WHERE id = ?";
@@ -161,7 +159,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 				usuarioRegister.getString(4), usuarioRegister.getString(5), usuarioRegister.getDouble(6),
 				usuarioRegister.getDouble(7), usuarioRegister.getBoolean(8));
 	}
-	
+
 	public int insertItinerario(Usuario usuario, Producto producto) {
 		try {
 			String sql = "INSERT INTO itinerarios (usuario_id, promocion_id, atraccion_id) VALUES (?, ?, ?)";
@@ -195,7 +193,9 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			while (resultados.next()) {
 				productos.add(toItinerario(resultados));
 			}
-
+			for (Producto p : productos) {
+				usuario.agregarAItinerario(p);
+			}
 			return productos;
 		} catch (Exception e) {
 			throw new MissingDataException(e);

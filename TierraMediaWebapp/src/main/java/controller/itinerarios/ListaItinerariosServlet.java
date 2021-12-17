@@ -29,9 +29,10 @@ public class ListaItinerariosServlet extends HttpServlet implements Servlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		Usuario usuario = (Usuario) req.getSession().getAttribute("usuario");
-		List<Producto> itinerario = usuarioService.listItinerario(usuario);		
+		List<Producto> itinerario = usuario.getItinerario();
 		
 		req.setAttribute("itinerario", itinerario);
+		System.out.println(itinerario);
 
 		RequestDispatcher dispatcher = getServletContext()
 				.getRequestDispatcher("/views/itinerario.jsp");

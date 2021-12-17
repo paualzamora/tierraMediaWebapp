@@ -17,10 +17,9 @@ public class ComprarAtraccionService {
 	UsuarioDAO usuarioDAO = DAOFactory.getUsuarioDAO();
 	UsuarioDAOImpl usuarioDAOImpl = new UsuarioDAOImpl();
 	
-	public Map<String, String> buy(Integer usuarioId, Integer atraccionId) {
+	public Map<String, String> buy(Usuario usuario, Integer atraccionId) {
 		Map<String, String> errores = new HashMap<String, String>();
 
-		Usuario usuario = usuarioDAO.find(usuarioId);
 		Atraccion atraccion = atraccionDAO.find(atraccionId);
 
 		if (!atraccion.hayCupo()) {
@@ -32,6 +31,7 @@ public class ComprarAtraccionService {
 
 		if (errores.isEmpty()) {
 			usuario.agregarAItinerario(atraccion);
+			System.out.println(usuario.getItinerarioString());
 			usuarioDAOImpl.insertItinerario(usuario, atraccion);	
 
 			atraccionDAO.update(atraccion);
